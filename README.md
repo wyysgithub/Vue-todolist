@@ -18,7 +18,9 @@
 
 
 ![](https://github.com/wyysgithub/Vue-todolist/blob/gh-pages/img/do-2.png)
+
 * 输入之后，点击提交即可添加。
+
 ![](https://github.com/wyysgithub/Vue-todolist/blob/gh-pages/img/do-3.png)
 
 日志会记录添加时间。

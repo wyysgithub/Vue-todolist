@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>todolist（父组件与子组件相互传值）</title>
+	<link rel="stylesheet" href="css/bootstrap.css">
+	<script src="vue.js"></script>
+	<style>
+		.w-h:hover{
+			background-color: rgba(0,0,120,.1);
+		}
+	</style>
+</head>
+<body>
+	<div id="root" class="container">
+		<h2>一个简单的todolist</h2>
+			<input type="text"  placeholder="输入待办事项..." v-model="inputValue">
+			<button class="btn btn-success" @click="handle">提交</button>
+			<button class="btn btn-danger" @click="deleteList">删除</button>
+		
+		<h3>列表：</h3>
+		<div>
+		<todoitem-g v-for="(item, index) of list" :key="index" :content="item" :index="index" :date="getDate()" @delete="deleteThis"></todoitem-g>
+		</div>
+		<h3> 操作日志:</h3>
+		<p v-for="(log,indexLog) of logList" :key="indexLog" >{{log}}</p>
+	</div>
+	
+	<script>
+		/*Vue.component()定义的组件为全局组件*/
+		Vue.component("todoitem-g",{
+			/*接收父级传送的属性*/
+			props:['content','index'],
+			template: '<p class="w-h" @click="deletethis">{{content}}<br><small>{{getDate()}}</small></p>',
+			methods:{
+				deletethis:function(){
+					/*触发一个delete事件，值为this.index*/
+					this.$emit('delete',this.index)
+				},
+				getDate:function(){
+					var newDate=new Date();
+					return newDate.toLocaleString();
+				},
+			}
+		})
+
+		/*局部组件*/
+		/*每个组件都是Vue的一个实例*/
+		var TodoItem={
+			template:"<li>这是一个局部组件</li>"
+		}
+
+		/*根实例*/
+		new Vue({
+			el:"#root",
+			data:{
+				inputValue:"",
+				list:[],
+				logList:[]
+			},
+			methods:{
+				getDate:function(){
+					var newDate=new Date();
+					return newDate.toLocaleString();
+				},
+				handle:function(){
+					this.list.push(this.inputValue);
+					this.logList.push("时间："+this.getDate()+" 操作：添加" +this.inputValue);
+					this.inputValue="";
+				},
+				deleteList:function(){
+					var msg="您真的确定要删除吗？\n请确认！"
+					if(confirm(msg)==true){
+						this.logList.push("时间："+this.getDate()+" 操作：删除" +this.list[this.list.length-1])
+						this.list.pop();
+					｝
+
+				},
+				deleteThis:function(index){
+					var msg="您真的确定要删除吗？\n请确认！"
+					if(confirm(msg)==true){
+						this.logList.push("时间："+this.getDate()+" 操作：删除" +this.list[index])
+						this.list.splice(index,1);
+				}
+				}		
+			},
+			/*要使用局部组件，需要注册*/
+			components:{
+				'todo-item': TodoItem
+			}
+		})
+	</script>
+</body>
+</html>

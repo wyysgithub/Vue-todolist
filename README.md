@@ -5,19 +5,20 @@
 
 文件：[index.html](https://github.com/wyysgithub/Vue-todolist/blob/master/index.html)
 
+[点此直接预览页面](https://wyysgithub.github.io/Vue-todolist/)
 
 ## 项目简介
 
 #### 1，界面
 
-![](https://github.com/wyysgithub/Vue-todolist/blob/master/img/d-1.png)
+![](https://github.com/wyysgithub/Vue-todolist/blob/gh-pages/img/do-1.png)
 
 #### 2，添加
 
 * 输入之后，点击添加即可。
 
-![](https://github.com/wyysgithub/Vue-todolist/blob/master/img/d-2.png)
-![](https://github.com/wyysgithub/Vue-todolist/blob/master/img/d-3.png)
+![](https://github.com/wyysgithub/Vue-todolist/blob/gh-pages/img/do-2.png)
+![](https://github.com/wyysgithub/Vue-todolist/blob/gh-pages/img/do-3.png)
 
 日志会记录添加时间。
 
@@ -25,15 +26,15 @@
 
 * 直接在列表项里点击删除，弹出提示，确认，则删除成功。
 
-![](https://github.com/wyysgithub/Vue-todolist/blob/master/img/d-4.png)
+![](https://github.com/wyysgithub/Vue-todolist/blob/gh-pages/img/do-4.png)
 
 * 记录日志。
 
-![](https://github.com/wyysgithub/Vue-todolist/blob/master/img/d-5.png)
+![](https://github.com/wyysgithub/Vue-todolist/blob/gh-pages/img/do-5.png)
 
 直接点击删除按钮，则会删除最近添加的一个列表项。
 
-![](https://github.com/wyysgithub/Vue-todolist/blob/master/img/d-6.png)
+![](https://github.com/wyysgithub/Vue-todolist/blob/gh-pages/img/do-6.png)
 
 
 
